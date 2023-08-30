@@ -1,5 +1,6 @@
 package webapi
 
+import application.usecases.BuscarCaixa
 import application.usecases.CriarCaixa
 import domain.interfaces.ICaixaRepository
 import infrastructure.repositories.CaixaRepository
@@ -34,4 +35,5 @@ fun Application.module() {
 val appModule = module {
     singleOf(::CaixaRepository) { bind<ICaixaRepository>() }
     single { CriarCaixa(get()) }
+    single { BuscarCaixa(get()) }
 }

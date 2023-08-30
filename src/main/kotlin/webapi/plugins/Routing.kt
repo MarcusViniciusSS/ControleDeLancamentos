@@ -13,9 +13,10 @@ fun Application.configureRouting() {
     val criarCaixa by inject<CriarCaixa>()
 
     routing {
-        get {
+        get  {
             criarCaixa.execute(Caixa("123"))
-            call.respondText("Hello World!")
+            call.respond(Caixa("123"))
         }
+
     }
 }

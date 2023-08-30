@@ -1,14 +1,15 @@
 package domain.entities
 
 import domain.valueobjects.Dinheiro
-import java.util.Date
+import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Lancamento (
     val description : String,
     val amount : Dinheiro,
+    val Date: LocalDateTime
 ) {
-    val Date = Date()
-
     fun getValor() : Double {
         return amount.getValor()
     }

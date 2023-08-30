@@ -2,23 +2,27 @@ package domain.aggregates
 
 import domain.entities.Lancamento
 import domain.valueobjects.StatusCaixa
-import java.util.*
+import kotlinx.datetime.*
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Caixa (var nome: String) {
 
     var id: Int = 0
         private set
-    private var dataAbertura: Date = Date()
+
+    private var dataAbertura: LocalDateTime = Clock.System.now().toLocalDateTime(TimeZone.UTC)
         private set
-    private var dataFechamento: Date? = null
+
+    private var dataFechamento: LocalDateTime? = null
         private set
     private var status: StatusCaixa = StatusCaixa.ABERTO
         private set
-    private lateinit var lancamentos: MutableList<Lancamento>
+    private var lancamentos: MutableList<Lancamento> = mutableListOf()
         private set
 
     fun fechar() {
-        this.dataFechamento = Date()
+        this.dataFechamento = Clock.System.now().toLocalDateTime(TimeZone.UTC)
         this.status = StatusCaixa.FECHADO
     }
 

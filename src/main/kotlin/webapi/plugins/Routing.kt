@@ -38,7 +38,7 @@ fun Application.configureRouting() {
 
         delete ("caixa/{id}") {
             val id : Int? = call.parameters["id"]?.toInt()
-            val resultado = id?.let { repository.Deletar(it) }
+            val resultado = id?.let { repository.Delete(it) }
 
             when {
                 resultado == true -> call.respond("Removido")

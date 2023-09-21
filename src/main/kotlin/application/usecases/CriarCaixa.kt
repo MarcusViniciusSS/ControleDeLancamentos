@@ -7,7 +7,7 @@ class CriarCaixa (private val caixaRepository: ICaixaRepository) {
     // adicionar injecao dependencia para o repositorio de caixa
     // publicar uma mensagem de dominio quando o caixa for criado
     fun execute(caixa: Caixa) {
-        caixaRepository.Criar(caixa)
+        caixaRepository.Create(caixa)
         println("Caixa criada ${caixa.nome}")
     }
 }

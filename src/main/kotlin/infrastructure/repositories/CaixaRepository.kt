@@ -7,8 +7,9 @@ class CaixaRepository : ICaixaRepository {
 
     var caixaStorage = mutableListOf<Caixa>()
 
-    override fun Criar(Caixa: Caixa): Boolean {
-        return caixaStorage.add(Caixa)
+    override fun Criar(caixa: Caixa): Boolean {
+        caixa.id = caixaStorage.count() + 1
+        return caixaStorage.add(caixa)
     }
 
     override fun BuscarPorId(id: Int): Caixa? {

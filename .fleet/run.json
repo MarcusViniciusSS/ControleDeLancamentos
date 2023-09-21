@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "gradle",
+            "name": "Controle de lançamentos run",
+            "tasks": [ "run" ],
+        },
+        
+    ]
+}

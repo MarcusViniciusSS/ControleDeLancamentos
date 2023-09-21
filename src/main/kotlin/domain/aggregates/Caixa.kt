@@ -9,7 +9,6 @@ import kotlinx.serialization.Serializable
 data class Caixa (var nome: String) {
 
     var id: Int = 0
-        private set
 
     private var dataAbertura: LocalDateTime = Clock.System.now().toLocalDateTime(TimeZone.UTC)
         private set

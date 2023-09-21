@@ -22,4 +22,11 @@ class CaixaRepository : ICaixaRepository {
         caixaStorage[index] = Caixa
         return true
     }
+
+    override fun Deletar(id: Int): Boolean {
+        val index = caixaStorage.indexOfFirst { it.id == id }
+        if (index == -1) return false
+        caixaStorage.removeAt(index)
+        return true
+    }
 }

@@ -2,6 +2,7 @@ package webapi.plugins
 
 import application.usecases.BuscarCaixa
 import application.usecases.CriarCaixa
+import domain.aggregates.Caixa
 import domain.interfaces.ICaixaRepository
 import io.ktor.http.*
 import io.ktor.http.content.*
@@ -30,6 +31,9 @@ fun Application.configureRouting() {
 
         post ("caixa") {
             val caixa = call.receive<CaixaViewModel>()
+            var result = criarCaixa.execute(Caixa(caixa.nome))
+
+            call.respond(HttpStatusCode.Created, result)
         }
 
         put ("caixa/{id}") {

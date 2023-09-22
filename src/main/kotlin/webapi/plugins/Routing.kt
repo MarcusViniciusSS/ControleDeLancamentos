@@ -30,14 +30,21 @@ fun Application.configureRouting() {
         }
 
         post ("caixa") {
-            val caixa = call.receive<CaixaViewModel>()
             var result = criarCaixa.execute(Caixa(caixa.nome))
 
             call.respond(HttpStatusCode.Created, result)
         }
 
         put ("caixa/{id}") {
+            val dto = call.receive<CaixaViewModel>()
+            val id : Int? = call.parameters["id"]?.toInt()
+            val caixa = id?.let { buscarCaixa.execute(it) }
+            if (caixa == null) {
+                call.respond(HttpStatusCode.NotFound)
+            }
 
+            caixa?.nome = dto.nome
+            caixa?.let { repository.Update(it) }
         }
 
         delete ("caixa/{id}") {

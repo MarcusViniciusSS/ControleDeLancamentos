@@ -27,24 +27,28 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-content-negotiation-jvm")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
+    implementation("io.ktor:ktor-server-core-jvm:2.3.5")
+    implementation("io.ktor:ktor-server-content-negotiation-jvm:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:2.3.5")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-    implementation("io.ktor:ktor-server-cors-jvm")
-    implementation("io.ktor:ktor-server-swagger-jvm")
-    implementation("io.ktor:ktor-server-compression-jvm")
-    implementation("io.ktor:ktor-server-forwarded-header-jvm")
-    implementation("io.ktor:ktor-server-default-headers-jvm")
+    implementation("io.ktor:ktor-server-cors-jvm:2.3.5")
+    implementation("io.ktor:ktor-server-swagger-jvm:2.3.5")
+    implementation("io.ktor:ktor-server-compression-jvm:2.3.5")
+    implementation("io.ktor:ktor-server-forwarded-header-jvm:2.3.5")
+    implementation("io.ktor:ktor-server-default-headers-jvm:2.3.5")
     implementation("org.postgresql:postgresql:$postgres_version")
     implementation("com.h2database:h2:$h2_version")
-    implementation("io.ktor:ktor-server-netty-jvm")
+    implementation("io.ktor:ktor-server-netty-jvm:2.3.5")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-tests-jvm")
+    testImplementation("io.ktor:ktor-server-tests-jvm:2.3.5")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
     // Koin for Ktor
     implementation ("io.insert-koin:koin-ktor:$koin_ktor")
     // SLF4J Logger
     implementation ("io.insert-koin:koin-logger-slf4j:$koin_ktor")
+
+    implementation("io.ktor:ktor-server-request-validation:$ktor_version")
+
+    implementation("io.ktor:ktor-server-status-pages:$ktor_version")
 }

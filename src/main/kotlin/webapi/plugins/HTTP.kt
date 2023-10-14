@@ -19,7 +19,7 @@ fun Application.configureHTTP() {
         anyHost()
     }
     routing {
-        swaggerUI(path = "openapi")
+        swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")
     }
     install(Compression) {
         gzip {

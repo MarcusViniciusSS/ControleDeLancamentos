@@ -4,7 +4,7 @@ info:
   description: "ControladorDeLancamentos API"
   version: "1.0.0"
 servers:
-- url: "https://ControladorDeLancamentos"
+- url: "https://localhost:8080"
 paths:
   /caixa:
     post:
@@ -68,7 +68,7 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: "#/components/schemas/Object"
+                $ref: "#/components/schemas/CaixaViewModel"
     patch:
       description: ""
       parameters:
@@ -95,7 +95,7 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: "#/components/schemas/Object"
+                $ref: "#/components/schemas/CaixaViewModel"
 components:
   schemas:
     CaixaViewModel:
